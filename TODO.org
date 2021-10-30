@@ -1,0 +1,13 @@
+* edit summary maxlength should be 128
+  https://github.com/archimag/cliki2/issues/13
+* show edit summary in /compare-revisions
+  https://github.com/archimag/cliki2/issues/14
+* ?source query parameter for getting page source
+  https://github.com/archimag/cliki2/issues/16
+* Support garbage mobile browsers
+  https://github.com/vsedach/cliki2-style/issues/2
+  meta viewport and other changes
+* Improve searching for anchor URIs and URI fragments
+  https://github.com/archimag/cliki2/issues/22
+* Remove non-printing Unicode characters in cut-whitespace
+  NBSP, hyphenation hints, right-to-left marks, etc.

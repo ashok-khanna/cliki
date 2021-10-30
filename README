@@ -1,0 +1,51 @@
+CLiki2 is the wiki software behind https://cliki.net
+
+You can obtain the code from:
+https://gitlab.common-lisp.net/vsedach/cliki2
+
+All CLiki2 dependencies are available via Quicklisp.
+
+The function (start-cliki-server <port> <homedir> <wikis>) starts an
+HTTP server on <port> serving one or more virtual hosted wikis from
+<homedir>. Example:
+
+(start-cliki-server
+  8081
+  "/home/cliki/"
+  (list
+    (list "wiki.alu.org"
+      (make-wiki "ALU" "Association of Lisp Users"
+                 "/home/cliki/alu-wiki/" "noreply@wiki.alu.org"))
+    (list "cliki.net"
+      (make-wiki "CLiki" "the common lisp wiki"
+                 "/home/cliki/cliki-test/" "noreply@cliki.net"))))
+
+Here, /home/cliki/ is used for things like the access and error logs.
+<wikis> is an alist of domain name to wiki mappings. The function
+make-wiki has the following signature:
+
+(make-wiki <wiki name> <wiki description>
+           <wiki-directory> <password-recovery-from-address>)
+
+CLiki2 stylesheets and background images need to be placed in
+<wiki-directory>/static/. Example styles are available from:
+
+https://gitlab.common-lisp.net/vsedach/cliki2-style
+https://gitlab.common-lisp.net/vsedach/alu-wiki-style
+
+The Common Lisp HyperSpec (for symbol links in wiki pages) needs to
+be in the folder HyperSpec/ in <homedir>, and the symbol table at
+HyperSpec/Data/Symbol-Table.text.
+
+CLiki2 is written by Andrey Moskvitin <archimag@gmail.com> and
+Vladimir Sedach <vsedach@common-lisp.net>
+
+CLiki2 graphic design was done by Anastasiya Sterh
+<ms.sterh@gmail.com>
+
+To report bugs, open an issue on the project issue tracker:
+https://gitlab.common-lisp.net/vsedach/cliki2/issues
+or email Vladimir Sedach <vsedach@common-lisp.net>
+
+CLiki2 is distributed under the GNU Affero General Public License
+version 3 or any later version. See the file COPYING for details.
